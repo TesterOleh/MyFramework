@@ -60,6 +60,7 @@
     <Compile Include="Tests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="brute-force_results.csv" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
