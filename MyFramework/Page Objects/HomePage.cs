@@ -35,5 +35,17 @@ namespace MyFramework.Page_Objects
             Assert.AreEqual("Вход в систему", driver.FindElement(By.XPath("//div[@id='login-form']/div[@class='title']")).Text);
             return new LoginPage(driver);
         }
+
+        /// <summary>
+        /// Method clicks on logout link at Home page and check if navigation is correct
+        /// </summary>
+        /// <returns>Login page with web driver - can be used by next method</returns>
+        public LoginPage ClickLogout()
+        {
+            driver.FindElement(By.LinkText("выйти")).Click();
+            Assert.AreEqual("http://www.quizful.net/LoginAction.loginForm", driver.Url);
+            Assert.AreEqual("Вход в систему", driver.FindElement(By.XPath("//div[@id='login-form']/div[@class='title']")).Text);
+            return new LoginPage(driver);
+        }
     }
 }

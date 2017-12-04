@@ -15,24 +15,23 @@ namespace MyFramework.Page_Objects
         /// </summary>
         /// <param name="username">username input</param>
         /// <param name="password">password input</param>
-        /// <returns>Login page with web driver - can be used by next method</returns>
-        public LoginPage Login(string username, string password)
+        /// <returns>True if logging was successfull</returns>
+        public bool Login(string username, string password)
         {
             driver.FindElement(By.Name("loginForm.login")).SendKeys(username);
             driver.FindElement(By.Name("loginForm.password")).SendKeys(password);
             driver.FindElement(By.Name("ok")).Click();
-            return new LoginPage(driver);
+
+            if (driver.FindElement(By.XPath("//a[@rel='nofollow']")).Text.Equals(username))
+            {
+                return true;
+            }
+
+            driver.FindElement(By.Name("loginForm.login")).Clear();
+            return false;          
         }
 
-        /// <summary>
-        /// Method cleasr username field on Login page
-        /// </summary>
-        /// <returns>Login page with web driver - can be used by next method</returns>
-        public LoginPage ClearUsernameField()
-        {
-            driver.FindElement(By.Name("loginForm.login")).Clear();
-            return new LoginPage(driver);
-        }
+
 
     }
 }

