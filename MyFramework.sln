@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFramework", "MyFramework\MyFramework.csproj", "{07FA195A-2D8F-4308-A179-828923F6C224}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericsTask", "GenericsTask\GenericsTask.csproj", "{15587B79-DDAA-4267-A6D8-DF63E660211F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{07FA195A-2D8F-4308-A179-828923F6C224}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{07FA195A-2D8F-4308-A179-828923F6C224}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07FA195A-2D8F-4308-A179-828923F6C224}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15587B79-DDAA-4267-A6D8-DF63E660211F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15587B79-DDAA-4267-A6D8-DF63E660211F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15587B79-DDAA-4267-A6D8-DF63E660211F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15587B79-DDAA-4267-A6D8-DF63E660211F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
